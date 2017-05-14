@@ -1,11 +1,4 @@
-sudo: required
 language: java
 jdk:
   - oraclejdk8
-node_js:
-  - "6"
-before_script:
-  - sudo npm install -g n
-  - sudo n stable
-  - sudo npm install -g npm
-script: ./build.sh
+script: ./gradlw check
