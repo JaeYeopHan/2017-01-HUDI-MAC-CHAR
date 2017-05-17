@@ -39,9 +39,12 @@ public class GamePlayers {
         return this.players;
     }
 
-    public String judgeGameResult(Map<Role, Player> voteStatus) {
-        Map<Player, Integer> voteCountResult = new HashMap<>(voteStatus.size());
-        voteStatus.forEach((role, player) -> role.vote(player));
+    public Player getPlayer(String userName) {
+        for (Player player : this.players) {
+            if (player.isSameNickName(userName)) {
+                return player;
+            }
+        }
         return null;
     }
 }

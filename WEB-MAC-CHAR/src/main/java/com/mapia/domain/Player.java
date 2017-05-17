@@ -38,4 +38,9 @@ public class Player {
     public void killed(boolean aliveOrKill) {
         this.stillAlive = aliveOrKill;
     }
+
+    @Override
+    public String toString() {
+        return this.user.getNickname();
+    }
 }
