@@ -34,4 +34,8 @@ public class Player {
     public boolean isSameNickName(String userNickName) {
         return this.user.isSameUser(userNickName);
     }
+
+    public void killed(boolean aliveOrKill) {
+        this.stillAlive = aliveOrKill;
+    }
 }

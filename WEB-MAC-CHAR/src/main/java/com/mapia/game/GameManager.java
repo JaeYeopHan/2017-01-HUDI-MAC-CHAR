@@ -1,6 +1,12 @@
 package com.mapia.game;
 
+import com.mapia.domain.Player;
+import com.mapia.domain.User;
+import com.mapia.domain.role.Role;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.mapia.domain.Player;
@@ -24,8 +30,9 @@ public class GameManager {
         return this.players.getPlayers();
     }
 
-    public String voteResult(VoteMessage voteMessage) {
-        
-        return null;
+    // 게임이 끝나면 "finished"
+    // 게임이 아직 안 끝났으면 이번 투표 결과로 죽은 사람 return
+    public String judgeGameResult(Map<Role, Player> voteStatus) {
+        return players.judgeGameResult(voteStatus);
     }
 }

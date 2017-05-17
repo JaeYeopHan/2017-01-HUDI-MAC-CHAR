@@ -4,9 +4,7 @@ import com.mapia.domain.Player;
 import com.mapia.domain.User;
 import com.mapia.domain.role.Role;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GamePlayers {
     private List<Player> players;
@@ -39,5 +37,11 @@ public class GamePlayers {
 
     public List<Player> getPlayers() {
         return this.players;
+    }
+
+    public String judgeGameResult(Map<Role, Player> voteStatus) {
+        Map<Player, Integer> voteCountResult = new HashMap<>(voteStatus.size());
+        voteStatus.forEach((role, player) -> role.vote(player));
+        return null;
     }
 }
