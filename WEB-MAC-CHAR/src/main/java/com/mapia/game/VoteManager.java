@@ -26,28 +26,28 @@ public class VoteManager {
         Player playerVoted = this.players.getPlayer(voteMessage.getTheVoted());
         voteStatus.put(playerVoting, playerVoted);
         //TODO Below code is TEST CODE, DELETE or COMMENT this code before commit.
-        if (this.players.getPlayer("testUser1") != null) {
-            this.voteStatus.put(this.players.getPlayer("testUser1"), this.players.getPlayer("testUser1"));
-        }
-        if (this.players.getPlayer("testUser2") != null) {
-            this.voteStatus.put(this.players.getPlayer("testUser2"), this.players.getPlayer("testUser2"));
-        }
-        if (this.players.getPlayer("testUser3") != null) {
-            this.voteStatus.put(this.players.getPlayer("testUser3"), this.players.getPlayer("testUser3"));
-        }
-        if (this.players.getPlayer("testUser4") != null) {
-            this.voteStatus.put(this.players.getPlayer("testUser4"), this.players.getPlayer("testUser4"));
-        }
-        if (this.players.getPlayer("testUser5") != null) {
-            this.voteStatus.put(this.players.getPlayer("testUser5"), this.players.getPlayer("testUser5"));
-        }
+//        if (this.players.getPlayer("testUser1") != null) {
+//            this.voteStatus.put(this.players.getPlayer("testUser1"), this.players.getPlayer("testUser1"));
+//        }
+//        if (this.players.getPlayer("testUser2") != null) {
+//            this.voteStatus.put(this.players.getPlayer("testUser2"), this.players.getPlayer("testUser2"));
+//        }
+//        if (this.players.getPlayer("testUser3") != null) {
+//            this.voteStatus.put(this.players.getPlayer("testUser3"), this.players.getPlayer("testUser3"));
+//        }
+//        if (this.players.getPlayer("testUser4") != null) {
+//            this.voteStatus.put(this.players.getPlayer("testUser4"), this.players.getPlayer("testUser4"));
+//        }
+//        if (this.players.getPlayer("testUser5") != null) {
+//            this.voteStatus.put(this.players.getPlayer("testUser5"), this.players.getPlayer("testUser5"));
+//        }
         // test room 에 미리 들어가 있던 세명의 testUser 는 각각 자신을 vote 한다.
 
         if (voteStatus.size() == this.players.countOfPlayers()) {
             return true;
         }
-//        return false;
-        return true;
+        return false;
+//        return true;
     }
 
     public GameResult returnGameResult(String stage) {
