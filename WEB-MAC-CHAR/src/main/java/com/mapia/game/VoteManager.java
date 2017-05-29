@@ -31,18 +31,18 @@ public class VoteManager {
 
         voteStatus.put(playerVoting, playerVoted);
         //TODO Below code is TEST CODE, DELETE or COMMENT this code before commit.
-//        if (this.players.getPlayer("testUser1") != null) {
-//            this.voteStatus.put(this.players.getPlayer("testUser1"), this.players.getPlayer("testUser1"));
-//        }
-//        if (this.players.getPlayer("testUser2") != null) {
-//            this.voteStatus.put(this.players.getPlayer("testUser2"), this.players.getPlayer("testUser2"));
-//        }
-//        if (this.players.getPlayer("testUser3") != null) {
-//            this.voteStatus.put(this.players.getPlayer("testUser3"), this.players.getPlayer("testUser3"));
-//        }
-//        if (this.players.getPlayer("testUser4") != null) {
-//            this.voteStatus.put(this.players.getPlayer("testUser4"), this.players.getPlayer("testUser4"));
-//        }
+        if (this.players.getPlayer("testUser1") != null) {
+            this.voteStatus.put(this.players.getPlayer("testUser1"), this.players.getPlayer("testUser1"));
+        }
+        if (this.players.getPlayer("testUser2") != null) {
+            this.voteStatus.put(this.players.getPlayer("testUser2"), this.players.getPlayer("testUser2"));
+        }
+        if (this.players.getPlayer("testUser3") != null) {
+            this.voteStatus.put(this.players.getPlayer("testUser3"), this.players.getPlayer("testUser3"));
+        }
+        if (this.players.getPlayer("testUser4") != null) {
+            this.voteStatus.put(this.players.getPlayer("testUser4"), this.players.getPlayer("testUser4"));
+        }
 //        if (this.players.getPlayer("testUser5") != null) {
 //            this.voteStatus.put(this.players.getPlayer("testUser5"), this.players.getPlayer("testUser5"));
 //        }
@@ -130,11 +130,10 @@ public class VoteManager {
         Player selectedPlayer = null;
         int base = 0;
         for (Map.Entry<Player, Integer> entry : countStatus.entrySet()) {
-            //TODO 동률일 때 로직 추가
             if (entry.getValue() > base) {
                 selectedPlayer = entry.getKey();
                 base = entry.getValue();
-            } else if (base == entry.getValue()) {
+            } else if (base == entry.getValue()) { //동률일 때 로직
                 selectedPlayer = null;
             }
         }

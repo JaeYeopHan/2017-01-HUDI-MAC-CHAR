@@ -12,7 +12,6 @@ export default class voteSocket {
             let {msg, finished, completeVote} = JSON.parse(gameResult.body);
             this.isFinished = finished;
             if (completeVote) {
-                console.log(`투표가 완료되었습니다.`);
                 if (!finished) {
                     this.killVictim(msg);
                     if (msg !== "") {
@@ -35,8 +34,8 @@ export default class voteSocket {
     }
 
     killVictim(theVoted) {
-        console.log(`   voteSocket::theVoted: ${theVoted}`);
         if (theVoted === null) {
+            console.log(`theVoted is null!!`);
             return;
         }
 
