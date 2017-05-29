@@ -51,12 +51,13 @@ export default class dayTime {
 
     sendDayTimeVoteResult() {
         let victim = this.voted === null ? "undefined" : this.voted.getElementsByClassName("player_name")[0].textContent;
+        this.voteSocket.sendVoteResult(this.userName, victim, "day");
         this.slot_box.removeEventListener("click", this.voteFunction);
         printMessage("결과를 처리 중입니다");
+        this.clearBoard();
         this.voted = null;
         setTimeout(() => {
             if (!this.voteSocket.gameIsFinished()) {
-                this.clearBoard();
                 this.nightTime.start();
             }
         }, 5000);

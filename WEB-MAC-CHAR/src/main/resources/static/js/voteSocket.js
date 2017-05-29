@@ -8,17 +8,21 @@ export default class voteSocket {
 
         this.isFinished = false;
 
-        stompClient.subscribe(vote_url, gameResult => {
+        this.stompClient.subscribe(vote_url, gameResult => {
             let {msg, finished, completeVote} = JSON.parse(gameResult.body);
             this.isFinished = finished;
-            if (completeVote) {
-                if (!finished) {
-                    this.killVictim(msg);
-                    if (msg !== "") {
+            if (completeVote) {//모든 클라이언트가 투표를 했는지 검사하는 flag
+                if (!finished) {//승패 여부를 판단하는 flag
+                    if (msg === "") {
+                        console.log(typeof msg);
+                        printMessage(`아무도 죽지 않았습니다.`);
+                    } else {
                         printMessage(`${msg}가 죽었습니다.`);
+                        this.killVictim(msg);
                     }
                 } else {
                     printMessage(msg);
+                    // "마피아가 승리하였습니다." or "시민이 승리하였습니다."
                 }
             }
         });
@@ -36,11 +40,6 @@ export default class voteSocket {
     killVictim(theVoted) {
         if (theVoted === null) {
             console.log(`theVoted is null!!`);
-            return;
-        }
-
-        if (theVoted === "") {
-            printMessage(`아무도 죽지 않았습니다.`);
             return;
         }
 
